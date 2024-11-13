@@ -147,7 +147,7 @@ namespace homework2
             ///Вывод: Информация о студентах
             Console.WriteLine("6 номер\n");
 
-            //Напитки
+            ///Напитки
             Drinks drink1 = new Drinks();
             drink1.title = "текила";
             drink1.alcPercent = 30;
@@ -164,7 +164,7 @@ namespace homework2
             drink5.title = "вино";
             drink5.alcPercent = 11;
 
-            //Студенты пошли
+            ///Студенты пошли
             Student student1 = new Student();
             student1.firstName = "Вася";
             student1.lastName = "Васильченко";
@@ -206,7 +206,7 @@ namespace homework2
             student5.volume = (20, drink5.title, drink5.alcPercent);
 
 
-            //Вывод
+            ///Вывод
             double genVolume = student1.volume.Item1 + student2.volume.Item1 + student3.volume.Item1 + student4.volume.Item1 + student5.volume.Item1;
             Console.WriteLine($"Общий объём выпитого - {genVolume} л");
             double alcVolume = student1.volume.Item1 * student1.volume.Item3 / 100 + student2.volume.Item1 * student2.volume.Item3 / 100 + student3.volume.Item1 * student3.volume.Item3 / 100 + student4.volume.Item1 * student4.volume.Item3 / 100 + student5.volume.Item1 * student5.volume.Item3 / 100;
@@ -219,7 +219,7 @@ namespace homework2
             Console.WriteLine("\nНажмите любую клавишу для завершения...");
             Console.ReadKey();
         }
-        //Структуры
+        ///Структуры
         struct Drinks
         {
             public string title;
