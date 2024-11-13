@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq.Expressions;
 
 
 
@@ -9,29 +10,29 @@ namespace homework2
     {
         static void Main()
         {
-            //1 номер
-            //Вывод информации о каждом типе данных
-            //Ввод: ничего
-            //Вывод: тип данных - максимальное значение - минимальное значение
-            Console.WriteLine("1 номер");
+            ///1 номер
+            ///Вывод информации о каждом типе данных
+            ///Вывод: тип данных - максимальное значение - минимальное значение
+            Console.WriteLine("1 номер\n");
 
-            Console.WriteLine("byte - 255 - 0");
-            Console.WriteLine("sbyte - 127 - -128");
-            Console.WriteLine("short - 32 767 - -32 768");
-            Console.WriteLine("ushort - 65 535 - 0");
-            Console.WriteLine("int - 2 147 483 647 - -2 147 483 648");
-            Console.WriteLine("uint - 4 294 967 295 - 0");
-            Console.WriteLine("long - 9 223 372 036 854 775 807 - -9 223 372 036 854 775 808");
-            Console.WriteLine("ulong - 18 446 744 073 709 551 615 - 0");
-            Console.WriteLine("float - 3.402823e38 - -3.402823e38");
-            Console.WriteLine("double - 1.797693e308 - -1.797693e308");
-            Console.WriteLine("decimal - 7.922816e28 - -7.922816e28");
+            Console.WriteLine($"{"ТИП",-10} | {"МАКС",-27} | {"МИН",-20}");
+            Console.WriteLine($"{"byte", -10} - {"255", -27} - {"0",-20}");
+            Console.WriteLine($"{"sbyte", -10} - {"127",-27} - {"-128",-20}");
+            Console.WriteLine($"{"short", -10} - {"32 767",-27} - {"-32 768",-20}");
+            Console.WriteLine($"{"ushort", -10} - {"65 535",-27} - {"0",-20}");
+            Console.WriteLine($"{"int", -10} - {"2 147 483 647",-27} - {"-2 147 483 648",-20}");
+            Console.WriteLine($"{"uint", -10} - {"4 294 967 295",-27} - {"0",-20}");
+            Console.WriteLine($"{"long", -10} - {"9 223 372 036 854 775 807",-27} - {"-9 223 372 036 854 775 808",-20}");
+            Console.WriteLine($"{"ulong", -10} - {"18 446 744 073 709 551 615",-27} - {"0",-20}");
+            Console.WriteLine($"{"float", -10} - {"3.402823e38",-27} - {"-3.402823e38",-20}");
+            Console.WriteLine($"{"double", -10} - {"1.797693e308",-27} - {"-1.797693e308",-20}");
+            Console.WriteLine($"{"decimal", -10} - {"7.922816e28",-27} - {"-7.922816e28",-20}");
 
-            //2 номер
-            //Принимаются и выводятся данные пользователя в виде имени, города, возраста и PIN - кода
-            //Ввод: имя, город, возраст, пин-код
-            //Вывод: Вышеперечисл. информация
-            Console.WriteLine("2 номер");
+            ///2 номер
+            ///Принимаются и выводятся данные пользователя в виде имени, города, возраста и PIN - кода
+            ///Ввод: имя, город, возраст, пин-код
+            ///Вывод: Вышеперечисл. информация
+            Console.WriteLine("2 номер\n");
 
             Console.WriteLine("Введите ваше имя");
             string name = Console.ReadLine();
@@ -45,38 +46,51 @@ namespace homework2
             string[] person = { name, city, age, pin };
             Console.WriteLine($"Имя - {person[0]}\nГород - {person[1]}\nВозраст - {person[2]}\nПИН - {person[3]}");
 
-            //3 номер
-            //Преобразуйте входную строку: строчные буквы замените на заглавные, заглавные – настрочные
-            //Ввод: строка
-            //Вывод: строка с измененным регистром символов
-            Console.WriteLine("3 номер");
+            ///3 номер
+            ///Преобразуйте входную строку: строчные буквы замените на заглавные, заглавные – настрочные
+            ///Ввод: строка
+            ///Вывод: строка с измененным регистром символов
+            Console.WriteLine("3 номер\n");
 
             Console.WriteLine("Введите строку");
             string input = Console.ReadLine();
 
             string ans = "";
-            foreach (char ch in input)
+            if (ans)
             {
-                string chr = ch.ToString().ToUpper();
-                if (chr == ch.ToString())
+                foreach (char ch in input)
                 {
-                    ans += ch.ToString().ToLower();
+                    string chr = ch.ToString().ToUpper();
+                    if (chr == ch.ToString())
+                    {
+                        ans += ch.ToString().ToLower();
+                    }
+                    else
+                    {
+                        ans += ch.ToString().ToUpper();
+                    }
                 }
-                else
-                {
-                    ans += ch.ToString().ToUpper();
-                }
+                Console.WriteLine(ans);
             }
-            Console.WriteLine(ans);
+            else
+            {
+                Console.WriteLine("А это пустая строка, я такое не ем");
+            }
+            
 
-            //4 номер
-            //Определить количество вхождений подстроки в строку
-            //Ввод: строка, подстрока
-            //Вывод: Количество вхождений
-            Console.WriteLine("4 номер");
+            ///4 номер
+            ///Определить количество вхождений подстроки в строку
+            ///Ввод: строка, подстрока
+            ///Вывод: Количество вхождений
+            Console.WriteLine("4 номер\n");
 
             Console.WriteLine("Введите строку");
             string s = Console.ReadLine();
+            while (!s)
+            {
+                Console.WriteLine("Это пустая строка!!\nВведите строку");
+                s = Console.ReadLine();
+            }
             Console.WriteLine("Введите подстроку");
             string sub_s = Console.ReadLine();
 
@@ -91,12 +105,12 @@ namespace homework2
                 Console.WriteLine($"Количество вхождений равно {count}");
             }
 
-            //5 номер
-            //Определить, сколько бутылок виски беспошлинной торговли вам нужно будет купить,
-            //чтобы экономия по сравнению с обычной средней ценой фактически покрыла расходы на ваш отпуск
-            //Ввод: цена без скидки, скидка, стоимость отпуска
-            //Вывод: количество бутылок
-            Console.WriteLine("5 номер");
+            ///5 номер
+            ///Определить, сколько бутылок виски беспошлинной торговли вам нужно будет купить,
+            ///чтобы экономия по сравнению с обычной средней ценой фактически покрыла расходы на ваш отпуск
+            ///Ввод: цена без скидки, скидка, стоимость отпуска
+            ///Вывод: количество бутылок
+            Console.WriteLine("5 номер\n");
 
             Console.WriteLine("Введите стандартную цену");
             int normPrice = int.Parse(Console.ReadLine());
@@ -105,16 +119,33 @@ namespace homework2
             Console.WriteLine("Введите стоимость отпуска");
             int holidayPrice = int.Parse(Console.ReadLine());
 
-            double delta = salePrice * normPrice / 100;
-            Console.WriteLine($"Количество бутылок = {(int)(holidayPrice / delta)}");
+            if (holidayPrice * salePrice * normPrice == 0)
+            {
+                if (normPrice == 0)
+                {
+                    Console.WriteLine("А не подскажите, где так продают??");
+                }
+                else if (salePrice == 0)
+                {
+                    Console.WriteLine("Сожалею, но скидкой 0 не накопить :(");
+                }
+                else
+                {
+                    Console.WriteLine("Ну дак у вас хватает, раз отпуск 0");
+                }
+            }
+            else
+            {
+                double delta = salePrice * normPrice / 100;
+                Console.WriteLine($"Количество бутылок = {(int)(holidayPrice / delta)}");
+            }
 
-            //6 номер
-            //Создать 5 студентов с различными параметрами
-            //Посчитать общий объем выпитого, общий объем алкоголя (процент спирта)
-            //и кто сколько процентов алкоголя и жидкости от общего количества выпил
-            //Ввод: -
-            //Вывод: Информация о студентах
-            Console.WriteLine("6 номер");
+            ///6 номер
+            ///Создать 5 студентов с различными параметрами
+            ///Посчитать общий объем выпитого, общий объем алкоголя (процент спирта)
+            ///и кто сколько процентов алкоголя и жидкости от общего количества выпил
+            ///Вывод: Информация о студентах
+            Console.WriteLine("6 номер\n");
 
             //Напитки
             Drinks drink1 = new Drinks();
@@ -186,7 +217,7 @@ namespace homework2
             Console.WriteLine($"{student4.firstName} {student4.lastName} выпил(а) {student4.volume.Item1 * 100 / genVolume:F1}% от общего объёма  (это {student4.volume.Item1 * student4.volume.Item3 / 100} л алкоголя [{student4.volume.Item1 * student4.volume.Item3 / alcVolume:F1})%]");
             Console.WriteLine($"{student5.firstName} {student5.lastName} выпил(а) {student5.volume.Item1 * 100 / genVolume:F1}% от общего объёма  (это {student5.volume.Item1 * student5.volume.Item3 / 100} л алкоголя [{student5.volume.Item1 * student5.volume.Item3 / alcVolume:F1})%]");
             Console.WriteLine("\nНажмите любую клавишу для завершения...");
-            Console.ReadLine();
+            Console.ReadKey();
         }
         //Структуры
         struct Drinks
@@ -205,7 +236,7 @@ namespace homework2
 
             public void Print()
             {
-                Console.WriteLine("=======================================");
+                Console.WriteLine(" =======================================");
                 Console.WriteLine($"Имя - {firstName}");
                 Console.WriteLine($"Фамилия - {lastName}");
                 Console.WriteLine($"Идентификатор - {ID}");

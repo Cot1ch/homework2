@@ -9,7 +9,7 @@ namespace Tumakov2
             //3.1
             //Создать перечисление, отображающее виды банковского счёта. Создать переменную типа перечисления, присвоить ей значение и вывести на экран
             //Ввод: -
-            Console.WriteLine("3.1");
+            Console.WriteLine("Задание 3.1");
 
             Account account1 = Account.Текущий;
 
@@ -19,7 +19,7 @@ namespace Tumakov2
             //3.2
             //Создать структуру, хранящую информацию о банковском счёте (номер, тип, баланс)
             //Ввод: -
-            Console.WriteLine("3.2");
+            Console.WriteLine("Задание 3.2");
 
             Data data = new Data();
             data.number = "123rT56";
@@ -30,10 +30,10 @@ namespace Tumakov2
             //3.1
             //Создать перечислимый тип ВУЗ {КГУ, КАИ, КХТИ}. Создать структуру работник с двумя полями: имя, ВУЗ.
             //Ввод: -
-            Console.WriteLine("3.1");
+            Console.WriteLine("Домашнее задание 3.1");
 
             Employee employee1 = new Employee();
-            employee1.name = "Вася";
+            employee1.name = "Вася Пупкин";
             employee1.univer = (University)0;
             employee1.Print();
 
